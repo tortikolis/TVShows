@@ -1,0 +1,17 @@
+header{
+    .search-list{
+        position: absolute;
+        top: 55px;
+        
+    
+        a{
+            display: block;
+            border-bottom: 1px solid rgb(207, 202, 202);
+            width: 190px;
+            background-color: rgb(245, 239, 239);
+            text-decoration: none;
+            color: black;
+            padding: 5px;
+        }
+    }
+}

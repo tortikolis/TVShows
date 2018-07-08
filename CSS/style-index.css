@@ -1,0 +1,33 @@
+header .search-list {
+  position: absolute;
+  top: 55px; }
+  header .search-list a {
+    display: block;
+    border-bottom: 1px solid #cfcaca;
+    width: 190px;
+    background-color: #f5efef;
+    text-decoration: none;
+    color: black;
+    padding: 5px; }
+
+.main {
+  position: relative;
+  top: 60px;
+  padding-bottom: 40px; }
+  .main h1 {
+    text-align: center;
+    margin: 20px 0px; }
+  .main img {
+    width: 100%; }
+  .main .footer {
+    padding: 15px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #212529;
+    color: white;
+    text-align: center; }
+  .main .info-img {
+    margin-bottom: 30px; }
+
+/*# sourceMappingURL=style-index.css.map */

@@ -1,0 +1,29 @@
+.main{
+    position: relative;
+    top: 60px;
+    padding-bottom: 40px; 
+
+    h1{
+        text-align: center;
+        margin: 20px 0px;
+    }
+    img{
+        width: 100%;
+    }
+    .item{
+
+        
+    }
+    .footer{
+        padding: 15px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background-color: #212529; 
+        color: white;
+        text-align: center;
+    }
+    .info-img{
+        margin-bottom: 30px;
+    }
+}
