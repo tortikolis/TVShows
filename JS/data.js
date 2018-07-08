@@ -23,7 +23,7 @@ class Season {
 }
 
 export const fetchShows = () => {
-    return fetch("http://api.tvmaze.com/shows")
+    return fetch("https://api.tvmaze.com/shows")
         .then((response) => {
             return response.json();
         })
@@ -45,7 +45,7 @@ export const fetchShows = () => {
 }
 
 export const fetchSingleShow = (id) => {
-    return fetch(`http://api.tvmaze.com/shows/${id}?embed[]=seasons&embed[]=cast`)
+    return fetch(`https://api.tvmaze.com/shows/${id}?embed[]=seasons&embed[]=cast`)
         .then((response) => {
             return response.json();
         })
@@ -73,7 +73,7 @@ export const fetchSingleShow = (id) => {
 }
 
 export const showSearch = (input) => {
-    return fetch(`http://api.tvmaze.com/search/shows?q=${input}`)
+    return fetch(`https://api.tvmaze.com/search/shows?q=${input}`)
         .then((response) => {
             return response.json();
         })
