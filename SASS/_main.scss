@@ -1,7 +1,11 @@
-.main{
+main{
     position: relative;
     top: 60px;
-    padding-bottom: 40px; 
+    padding-bottom: 40px;
+    
+    a{
+        text-decoration: none;
+    }
 
     h1{
         text-align: center;
@@ -10,9 +14,8 @@
     img{
         width: 100%;
     }
-    .item{
-
-        
+    .landing-page-a{
+        margin-bottom: 15px;
     }
     .footer{
         padding: 15px;

@@ -1,17 +1,122 @@
+@import "variables";
+@import "mixins";
+
 header{
-    .search-list{
-        position: absolute;
-        top: 55px;
-        
-    
-        a{
-            display: block;
-            border-bottom: 1px solid rgb(207, 202, 202);
-            width: 190px;
-            background-color: rgb(245, 239, 239);
-            text-decoration: none;
-            color: black;
-            padding: 5px;
+    width:100%;
+    height: 135px;
+    background-color: $header-bg;
+    background-size: cover;
+
+    .social-media {
+        margin: $social-margin;
+        float: right;
+        .fa-twitter-square{
+            color: $twitter-color;
+        }
+        .fa-facebook-square{
+            color:$fb-color
+        }
+        .fa-instagram{
+            color:$instagram-color;
         }
     }
+
+    .title-container{
+        display: inline-block;
+        background-color: $main-grey;
+        width: 105px;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+
+    .title{
+        display: inline-block;
+        font-family: 'Merienda', cursive;
+        font-size: 20px;
+        color: white;
+        border: 5px solid white;
+        border-left: none;
+        border-right: none;
+        margin: 0px;
+        text-align: center;  
+    }
 }
+    
+    nav {
+        margin: $nav-margin;
+        ul{
+            list-style-type: none;
+            padding: 0px;
+            display: inline;
+            li{
+                display: inline;
+                a {
+                    margin: 10px;
+                    color: $main-grey;
+                    font-weight: 700;
+                    font-size:14px;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    position: relative;
+                        @include tablet-max(767px)
+                    }
+                a:hover {
+                    color: #807d7d;
+                    text-decoration: none;
+                    }  
+                }   
+            }
+        .search{
+            float: right;
+            position: relative;
+            .search-button{
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: $main-grey;
+            }
+            .close-search-button{
+                display: none;
+                background: none;
+                border: none;
+                float: right;
+                cursor: pointer;
+                color: $main-grey
+            }
+            .search-input{
+                display: none;
+                padding: 2px;
+                width: 200px;
+                border: 3px solid $main-grey;
+                border-radius: 5px;
+            }
+            .search-input:focus, .close-search-button:focus, .search-button:focus{
+                outline: none;
+            }
+            @include dropdown(block,0) 
+        }
+        .dropdown{
+            .dropdown-btn{
+                height:40px;
+                width: 40px;
+                float: left;
+                cursor: pointer;
+                color: $main-grey;
+                @include tablet-min(768px)
+            }
+                @include dropdown(none,35px)
+        }
+                .dropdown:hover .dropdown-content {
+                    display: block;
+                }
+    }
+}
+header:after {
+    background: linear-gradient(to right, #e7baa0 25%,#e5dace 25%, #b2b2a2 50%, #6d7973 50%, #3f3931 75%, #f4e7d7 75%);
+    position: absolute;
+    content: '';
+    height: 4px;
+    right: 0;
+    left: 0;
+    top: 135px;
+  }

@@ -1,9 +1,11 @@
 
 class Show {
-    constructor(id, name, image) {
+    constructor(id, name, image, genres, rating) {
         this.id = id;
         this.name = name;
         this.image = image;
+        this.genres = genres;
+        this.rating = rating;
     }
 }
 
@@ -24,40 +26,35 @@ class Season {
 
 export const fetchShows = () => {
     return fetch("https://api.tvmaze.com/shows")
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-
+        .then(response => response.json())
+        .then(data => {
             let first50 = [];
             for (let i = 0; i < 50; i++) {
                 first50.push(data[i]);
             }
-            let shows = first50.map((show) => {
-                const id = show.id;
+            let shows = first50.map(show => {
+                const { id, name, genres } = show;
                 const image = show.image.medium;
-                const name = show.name;
-                return new Show(id, name, image);
-            })
+                const rating = show.rating.average;
 
+                return new Show(id, name, image, genres, rating);
+            })
             return shows;
         })
 }
 
-export const fetchSingleShow = (id) => {
+export const fetchSingleShow = id => {
     return fetch(`https://api.tvmaze.com/shows/${id}?embed[]=seasons&embed[]=cast`)
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            const name = data.name;
+        .then(response => response.json())
+        .then(data => {
+            const { name, id, summary } = data;
+            const { cast, seasons } = data._embedded;
             const image = data.image.original;
-            const id = data.id;
-            const description = data.summary;
-            let castList = [];
-            let seasonsList = [];
-            const cast = data._embedded.cast;
-            const seasons = data._embedded.seasons;
+            const description = summary;
+            
+            const castList = [];
+            const seasonsList = [];
+        
             cast.forEach(element => {
                 castList.push(element.person.name)
             });
@@ -74,10 +71,8 @@ export const fetchSingleShow = (id) => {
 
 export const showSearch = (input) => {
     return fetch(`https://api.tvmaze.com/search/shows?q=${input}`)
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
+        .then(response => response.json())
+        .then(data => {
             let shows = [];
             if (data.length <= 10) {
                 data.forEach((element) => {
