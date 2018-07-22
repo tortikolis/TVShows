@@ -50,7 +50,7 @@ export const dropdownDisplay = data => {
     const $dropdown = $(".search-list");
     $dropdown.empty();
     data.forEach(show => {
-        const item = $(`<li><a href="#" data-id=${show.id}>${show.name}</a></li>`);
+        const item = $(`<li><a href="#" data-id=${show.id} class="show-link">${show.name}</a></li>`);
         $dropdown.append(item);
     })
 }

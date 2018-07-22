@@ -41,6 +41,7 @@ export const initSinglePage = () => {
         })
         .catch(error => console.error("Fetch error:", error))
 
+    searchInputHandle();
     handleClickOnLink();
     handleTypingInSearch();
 }
