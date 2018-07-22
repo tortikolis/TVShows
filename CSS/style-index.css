@@ -147,6 +147,10 @@ main {
   position: relative;
   top: 60px;
   padding-bottom: 40px; }
+  main .content {
+    margin-bottom: 100px; }
+    main .content a {
+      text-decoration: none; }
   main a {
     text-decoration: none; }
   main h1 {

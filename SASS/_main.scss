@@ -3,6 +3,13 @@ main{
     top: 60px;
     padding-bottom: 40px;
     
+    .content{
+        margin-bottom: 100px;
+
+        a{
+            text-decoration: none;
+        }
+    }
     a{
         text-decoration: none;
     }
