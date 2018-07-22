@@ -27,7 +27,7 @@ export const initHomepage = () => {
         })
         .catch(error => console.error("Fetch error:", error))
     
-    headerfooterLoader();
+    headerLoader();
     searchInputHandle();
     handleClickOnLink();
     handleTypingInSearch();
