@@ -1,5 +1,5 @@
 import { fetchShows, fetchSingleShow, showSearch } from "./data.js";
-import { displayShows, displaySingleShow, dropdownDisplay, searchInputHandle } from "./ui.js";
+import { displayShows, displaySingleShow, dropdownDisplay, searchInputHandle, headerLoader } from "./ui.js";
 
 const handleClickOnLink = () => {
     $(document).on("click", ".show-link", function (event) {
@@ -26,7 +26,8 @@ export const initHomepage = () => {
             displayShows(shows);
         })
         .catch(error => console.error("Fetch error:", error))
-
+    
+    headerfooterLoader();
     searchInputHandle();
     handleClickOnLink();
     handleTypingInSearch();
@@ -41,6 +42,7 @@ export const initSinglePage = () => {
         })
         .catch(error => console.error("Fetch error:", error))
 
+    headerLoader();
     searchInputHandle();
     handleClickOnLink();
     handleTypingInSearch();

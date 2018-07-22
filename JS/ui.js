@@ -76,5 +76,9 @@ export const searchInputHandle = () => {
     })
 }
 
+export const headerLoader = () => {
+    $("header").load("header.html")
+}
+
 
 
