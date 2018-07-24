@@ -10,6 +10,12 @@
     }
 }
 
+@mixin small(){
+    @media only screen and (max-width: 508px) {
+        width: 508px;
+    }
+}
+
 @mixin dropdown($display,$top){
     .dropdown-content{
         font-weight: 700;
