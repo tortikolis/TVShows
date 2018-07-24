@@ -106,7 +106,7 @@ export const showSearch = (input) => {
         })
 }
 export const fetchSchedule = (countrycode="US") => {
-    return fetch( `http://api.tvmaze.com/schedule?country=${countrycode}`)
+    return fetch( `https://api.tvmaze.com/schedule?country=${countrycode}`)
     .then(response => response.json())
     .then(data => {
         return data.map( episode => {
