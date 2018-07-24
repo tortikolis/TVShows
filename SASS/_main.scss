@@ -1,39 +1,67 @@
-main{
+main {
     position: relative;
-    top: 60px;
+    top: 50px;
     padding-bottom: 40px;
-    
-    .content{
+    h1 {
+        font-family: 'Merienda', cursive;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    .content {
         margin-bottom: 100px;
-
-        a{
+        a {
             text-decoration: none;
         }
     }
-    a{
+    a {
         text-decoration: none;
+        color: rgb(99, 98, 98)
     }
-
-    h1{
-        text-align: center;
-        margin: 20px 0px;
-    }
-    img{
+    img {
         width: 100%;
     }
-    .landing-page-a{
+    .landing-page-a {
         margin-bottom: 15px;
     }
-    .footer{
+    .footer {
         padding: 15px;
         width: 100%;
         position: absolute;
         bottom: 0;
-        background-color: #212529; 
+        background-color: #212529;
         color: white;
         text-align: center;
     }
-    .info-img{
+    .info-img {
         margin-bottom: 30px;
+    }
+    .spinner {
+        width: 200px;
+        height: 200px;
+        margin: 100px auto 1000px auto;
+        background-color: rgb(238, 73, 73);
+        border-radius: 100%;
+        -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+        animation: sk-scaleout 1.0s infinite ease-in-out;
+    }
+    @-webkit-keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0)
+        }
+        100% {
+            -webkit-transform: scale(1.0);
+            opacity: 0;
+        }
+    }
+    @keyframes sk-scaleout {
+        0% {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+        100% {
+            -webkit-transform: scale(1.0);
+            transform: scale(1.0);
+            opacity: 0;
+        }
     }
 }

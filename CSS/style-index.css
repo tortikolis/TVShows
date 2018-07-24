@@ -145,17 +145,19 @@ header:after {
 
 main {
   position: relative;
-  top: 60px;
+  top: 50px;
   padding-bottom: 40px; }
+  main h1 {
+    font-family: 'Merienda', cursive;
+    margin-bottom: 50px;
+    text-align: center; }
   main .content {
     margin-bottom: 100px; }
     main .content a {
       text-decoration: none; }
   main a {
-    text-decoration: none; }
-  main h1 {
-    text-align: center;
-    margin: 20px 0px; }
+    text-decoration: none;
+    color: #636262; }
   main img {
     width: 100%; }
   main .landing-page-a {
@@ -170,7 +172,28 @@ main {
     text-align: center; }
   main .info-img {
     margin-bottom: 30px; }
-
+  main .spinner {
+    width: 200px;
+    height: 200px;
+    margin: 100px auto 1000px auto;
+    background-color: #ee4949;
+    border-radius: 100%;
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+    animation: sk-scaleout 1.0s infinite ease-in-out; }
+@-webkit-keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0); }
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 0; } }
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0; } }
 .footer {
   padding: 15px;
   width: 100%;
@@ -179,6 +202,53 @@ main {
   background-color: #212529;
   color: white;
   text-align: center; }
+
+main h1 {
+  font-family: 'Merienda', cursive; }
+main .schedule-country {
+  width: 100px;
+  margin-bottom: 30px; }
+main .schedule-header {
+  color: grey;
+  font-weight: bolder; }
+  @media only screen and (max-width: 508px) {
+    main .schedule-header {
+      width: 508px; } }
+main .schedule-container {
+  min-height: 100px;
+  border: 1px solid #c5c2c2;
+  border-radius: 10px; }
+  @media only screen and (max-width: 508px) {
+    main .schedule-container {
+      width: 508px; } }
+  main .schedule-container .episode-card {
+    border-bottom: 1px solid #c5c2c2;
+    margin-bottom: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+    main .schedule-container .episode-card .image {
+      display: inline-block;
+      width: max-content; }
+      main .schedule-container .episode-card .image img {
+        width: 70px;
+        border: 1px solid #c5c2c2;
+        border-radius: 4px;
+        padding: 5px; }
+  main .schedule-container .episode-card:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.22); }
+main .info {
+  display: inline-block;
+  width: 15%;
+  text-align: center; }
+main .name {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  font-weight: bold; }
+  main .name .show-name {
+    color: #3B5998; }
+  main .name .episode-name {
+    font-weight: 400; }
 
 body {
   margin: 0px;

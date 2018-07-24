@@ -1,4 +1,3 @@
-
 class Show {
     constructor(id, name, image, genres, rating) {
         this.id = id;
@@ -24,6 +23,19 @@ class Season {
     }
 }
 
+class Scheduled {
+    constructor(id, airtime, epName, runtime, season, showName, image, channel){
+        this.id = id;
+        this.airtime = airtime;
+        this.epName = epName;
+        this.runtime = runtime;
+        this.season = season;
+        this.showName = showName;
+        this.image = image;
+        this.channel = channel;
+    }
+}
+
 export const fetchShows = () => {
     return fetch("https://api.tvmaze.com/shows")
         .then(response => response.json())
@@ -34,7 +46,7 @@ export const fetchShows = () => {
             }
             let shows = first50.map(show => {
                 const { id, name, genres } = show;
-                const image = show.image.medium;
+                const image = show.image.original;
                 const rating = show.rating.average;
 
                 return new Show(id, name, image, genres, rating);
@@ -64,8 +76,7 @@ export const fetchSingleShow = id => {
                 const newSeason = new Season(startDate, endDate);
                 seasonsList.push(newSeason);
             })
-            const newDetailedShow = new DetailedShow(id, name, image, castList, seasonsList, description)
-            return newDetailedShow;
+            return new DetailedShow(id, name, image, castList, seasonsList, description)     
         })
 }
 
@@ -94,5 +105,25 @@ export const showSearch = (input) => {
             return shows;
         })
 }
+export const fetchSchedule = (countrycode="US") => {
+    return fetch( `http://api.tvmaze.com/schedule?country=${countrycode}`)
+    .then(response => response.json())
+    .then(data => {
+        return data.map( episode => {
+            if(!episode.show.network || !episode.show.image){
+                return
+            }
+            const { airtime, runtime, season } = episode;
+            const id = episode.show.id;
+            const image = episode.show.image.medium;
+            const channel = episode.show.network.name;
+            const showName = episode.show.name;
+            const epName = episode.name;
+            
+            return new Scheduled(id, airtime, epName, runtime, season, showName, image, channel);
+
+        })   
+    })
+} 
 
 

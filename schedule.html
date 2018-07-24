@@ -17,31 +17,25 @@
     <header></header>
     <main>
         <div class="spinner"></div>
-        <div id="info-wraper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 title"></div>
-                    <div class="col-6 img"></div>
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-12">
-                                <h5>Seasons</h5>
-                                <ul class="seasons-list">
-
-                                </ul>
-                            </div>
-                            <div class="col-12">
-                                <h5>Cast</h5>
-                                <ul class="cast-list">
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 show-details"></div>
-                </div>
+        <div class="container">
+            <h1>Schedule</h1>
+            <div class="schedule-country">Country:
+                <select name="schedule" id="schedule" class="form-control">
+                    <option value="US">US</option>
+                    <option value="GB">GB</option>
+                    <option value="FR">FR</option>
+                    <option value="RU">RUS</option>
+                </select>
             </div>
-        </div>
+
+            <div class="schedule-header">
+                <div class="info">Start time</div>
+                <div class="info">Channel</div>
+                <div class="name">Name of Show/Episode</div>
+            </div>
+            <div class="schedule-container">
+            </div>
+
     </main>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -51,8 +45,8 @@
 
     <script>$("header").load("header.html")</script>
     <script type="module">
-        import { initSinglePage } from "./JS/main.js"
-        $(initSinglePage)
+        import { initSchedulePage } from "./JS/main.js"
+        $(initSchedulePage)
     </script>
 </body>
 

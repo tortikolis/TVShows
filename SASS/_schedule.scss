@@ -1,0 +1,68 @@
+@import "mixins";
+@import "variables";
+
+main {
+    h1{
+        font-family: 'Merienda', cursive;
+    }
+    .schedule-country{
+        width: 100px;
+        margin-bottom: 30px;
+    }
+    .schedule-header{
+        color: grey;
+        font-weight: bolder;
+        @include small();
+    }
+    .schedule-container{
+        min-height: 100px;
+        border: $grey-border;
+        border-radius: 10px;
+        @include small();
+
+        .episode-card{
+            border-bottom: $grey-border;
+            margin-bottom: 5px;
+            box-shadow: $shadow;
+            transition: $transition;
+            
+            .image{
+                display: inline-block;
+                width: max-content;
+
+                img{
+                    width: 70px;
+                    border: $grey-border;
+                    border-radius: 4px;
+                    padding: 5px;
+                }
+            }
+           
+        }
+        .episode-card:hover{
+            box-shadow: $shadow-hover;
+        }
+    }
+
+    .info{
+        display: inline-block;
+        width: 15%;
+        text-align: center;
+        
+    }
+    .name{
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        font-weight: bold;
+        .show-name{
+            color: $fb-color;
+        }
+        .episode-name{
+            font-weight: 400
+        }
+     
+    }
+    
+    
+}

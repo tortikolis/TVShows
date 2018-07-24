@@ -1,6 +1,8 @@
 
 export const displayShows = data => {
     const $row = $(".row");
+    $(".spinner").hide();
+
     data.forEach(element => {
         const itemField = $(`<a href='show-info.html' data-id='${element.id}' class="show-link">
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 landing-page-a">
@@ -10,9 +12,7 @@ export const displayShows = data => {
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">GENRE: <br>${element.genres}</li>
                         <li class="list-group-item">RATING: ${element.rating}
-                        <div class="progress">
-                        <div class="progress-bar-striped bg-success" role="progressbar" style="width: ${element.rating * 10}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
+                            <div class="stars">${'<i class="far fa-star"></i>'.repeat(element.rating / 2)}${'<i class="far fa-star-half"></i>'.repeat(element.rating % 2)}</div>
                         </li>
                     </ul>
                 </div</div>
@@ -24,6 +24,9 @@ export const displayShows = data => {
 export const displaySingleShow = data => {
     const $titleField = $(".show-title");
     const $title = $(`<h1 id="show-title">${data.name}</h1>`);
+
+    $(".spinner").hide();
+
     $titleField.append($title);
     const $imgField = $(".img");
     const $img = $(`<img src="${data.image}" alt="${data.name} image" class="info-img">`);
@@ -46,6 +49,27 @@ export const displaySingleShow = data => {
     $showDeatailsField.append($showDeatails);
 }
 
+export const displaySchedule = (data) => {
+    const $card = $(".schedule-container");
+    $(".spinner").hide();
+    data.forEach(episode => {
+        const cardHTML = `<div class="episode-card">
+        <div class="info badge badge-danger">${episode.airtime}</div>
+        <div class="info badge badge-light">${episode.channel}</div>
+        <div class="name">
+            <div class="show-name">${episode.showName}</div>
+            <div class="episode-name">${episode.epName}</div>
+        </div>
+        <div class="image">
+            <img src=${episode.image} alt="${episode.showName}">
+            </div>
+        </div>`
+
+        $card.append(cardHTML);
+    });
+
+}
+
 export const dropdownDisplay = data => {
     const $dropdown = $(".search-list");
     $dropdown.empty();
@@ -56,8 +80,6 @@ export const dropdownDisplay = data => {
 }
 
 export const searchInputHandle = () => {
-    
-    
     const $search = $(".search-button");
     const $closeSearch = $(".close-search-button");
     const $searchInput = $(".search-input");
@@ -75,6 +97,18 @@ export const searchInputHandle = () => {
         $searchInput.val("");
         $dropdown.empty();
         $search.fadeIn(500);
+    })
+}
+
+export const selectCountry = (callback) => {
+    const $schedule = $("#schedule");
+    const $container = $(".schedule-container");
+
+    $schedule.on("change", function () {
+        const country = this.value;
+        $container.empty();
+
+        callback(country)
     })
 }
 
