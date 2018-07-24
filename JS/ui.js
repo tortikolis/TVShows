@@ -56,6 +56,8 @@ export const dropdownDisplay = data => {
 }
 
 export const searchInputHandle = () => {
+    
+    
     const $search = $(".search-button");
     const $closeSearch = $(".close-search-button");
     const $searchInput = $(".search-input");
@@ -76,9 +78,7 @@ export const searchInputHandle = () => {
     })
 }
 
-export const headerLoader = () => {
-    $("header").load("header.html")
-}
+
 
 
 
